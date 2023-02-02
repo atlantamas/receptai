@@ -1,29 +1,37 @@
-import view_receptas from "./view_receptas.mjs"
-
-const view_receptai = function (param_container, param_arr_receptai)
+const view_kategorijos = function (param_container, param_arr_kategorijos)
 {
     param_container.innerHTML = ""
 
-    for (var i = 0; i < param_arr_receptai.length; i++)
+    for (var i = 0; i < param_arr_kategorijos.length; i++)
     {
-        const receptas = param_arr_receptai[i]
+        const kategorija = param_arr_kategorijos[i]
 
-        //receptas title
+        //kategorija  title
 
         const div = document.createElement("div")
+
         div.style.width = "15em"
         div.style.height = "15em"
         div.style.backgroundSize = "cover"
-        div.style.backgroundImage = `url('${receptas.strMealThumb}')`
+        div.style.backgroundImage = `url('${kategorija.strCategoryThumb}')`
         div.style.boxShadow = "0.2em 0.2em 0.2em rgb(200, 200, 200)"
         div.style.borderRadius = "0.2em"
-        div.style.display ="grid"
-        div.style.gridTemplateColumns ="auto"
-        div.style.placeContent ="end center"
-        div.style.placeItems ="center center"
+        div.style.display = "grid"
+        div.style.gridTemplateColumns = "auto"
+        div.style.placeContent = "end center"
+        div.style.placeItems = "center center"
+
+        div.addEventListener("click", function ()
+        {
+            alert(kategorija.strCategory)
+        })
+
+        //
 
         const span_strMeal = document.createElement("div")
-        span_strMeal.innerHTML = receptas.strMeal
+
+        span_strMeal.innerHTML = kategorija.strCategory
+
         span_strMeal.style.width = "15em"
         span_strMeal.style.height = "4em"
         span_strMeal.style.backgroundColor = "white"
@@ -37,23 +45,10 @@ const view_receptai = function (param_container, param_arr_receptai)
 
         div.appendChild(span_strMeal)
 
-        //event
-
-        const handle_click = function ()
-        {
-            view_receptas(
-                document.getElementById("view_receptas"),
-                receptas.idMeal
-            )
-        }
-
-
-        div.addEventListener("click", handle_click)
-
         //
 
         param_container.appendChild(div)
     }
 }
 
-export default view_receptai
+export default view_kategorijos

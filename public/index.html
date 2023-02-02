@@ -57,7 +57,7 @@
         }
 
         main {
-            background-color: darkgreen;
+            background-color:white;
             display: grid;
             grid-template-columns: repeat(auto-fit, 15em);
             grid-template-rows: auto;
@@ -70,23 +70,42 @@
             background-color: darkblue;
 
         }
+
+        #view_receptas
+        {
+            width: 90%;
+            height: fit-content;
+            padding: 1em 1em 1em 1em;
+            border: 0;
+            margin: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            grid-template-columns: auto;
+            place-content: center center;
+            place-items: center center;
+            box-shadow:0.2em 0.2em 0.2em rgb(200, 200, 200);
+        }
         
     </style>
 </head>
 
 <body>
+
+    <div id="view_receptas"></div>
     <header>
-        <button id="button_naujausi_receptai">Naujausi receptai</button>
+        <div id="view_mygtukas_kategorijos"></div>
         <div id="view_recepto_paieska"></div>
     </header>
 
-    <main>
-        <span>main</span>
-    </main>
+    <main></main>
 
-    <footer>
+    <!-- <footer>
         <span>footer</span>
-    </footer>
+    </footer> -->
 
     <script type="module" src="main.mjs"></script>
 
