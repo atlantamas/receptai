@@ -1,5 +1,5 @@
+import controller_handle_mygtukas_kategorijos_click from "../controllers/controller_handle_mygtukas_kategorijos_click.mjs"
 import model_gauti_receptu_kategorijas from "../models/model_gauti_receptu_kategorijas.mjs"
-import view_kategorijos from "./view_kategorijos.mjs"
 
 const view_mygtukas_kategorijos =async function(param_container)
 {
@@ -8,14 +8,9 @@ const view_mygtukas_kategorijos =async function(param_container)
     //
 
     const button = document.createElement("button")
+    button.style.margin = "0 1em 0 1em"
     button.innerHTML= "Kategorijos"
-    button.addEventListener("click", function()
-    {
-        view_kategorijos(
-            document.getElementsByTagName("main")[0],
-            result_of_model_gauti_receptu_kategorijas.categories
-        )
-    })
+    button.addEventListener("click", controller_handle_mygtukas_kategorijos_click)
 
     param_container.appendChild(button)
 }

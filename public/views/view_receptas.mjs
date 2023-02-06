@@ -1,48 +1,47 @@
-import model_gauti_recepta_pagal_id from "../models/model_gauti_recepta_pagal_id.mjs"
-
-const view_receptas = async function (param_container, param_idMeal)
+const view_receptas = async function (param_container, param_receptas)
 {
-    //
+// paslepti main scrollbar 
 
-    const result_of_model_gauti_recepta_pagal_id = await model_gauti_recepta_pagal_id(param_idMeal)
-
-    const receptas = result_of_model_gauti_recepta_pagal_id.meals[0]
+    document.body.style.overflow = "hidden"
 
     //
 
     param_container.innerHTML = ""
 
-    //span_idMeal
+    // span_idMeal
 
     const span_idMeal = document.createElement("span")
-    span_idMeal.innerHTML = param_idMeal
+    span_idMeal.innerHTML = param_receptas.idMeal
 
-    //span_strInstructions
+    // span_strInstructions
 
     const span_strInstructions = document.createElement("span")
-    span_idMeal.innerHTML = receptas.strInstructions
+    span_idMeal.innerHTML = param_receptas.strInstructions
 
-    //iframe_youtube_video
+    // iframe_youtube_video
 
     const iframe_youtube_video = document.createElement("iframe")
     iframe_youtube_video.style.width = "42em"
     iframe_youtube_video.style.height = "31.5em"
 
-    const result_of_replace = receptas.strYoutube.replace("watch","")
+    // mutate uri
+
+    const result_of_replace = param_receptas.strYoutube.replace("watch", "embed")
 
     iframe_youtube_video.src = result_of_replace
 
-    //button
+    // button
 
     const button = document.createElement("button")
     button.innerHTML = "Uzdaryti"
+
     button.addEventListener("click", function ()
     {
         param_container.style.display = "none"
-
+        document.body.style.overflow = "auto"
     })
 
-    //appenChild
+    // appenChild
 
     param_container.appendChild(span_idMeal)
     param_container.appendChild(span_strInstructions)
@@ -52,7 +51,6 @@ const view_receptas = async function (param_container, param_idMeal)
     //
 
     param_container.style.display = "grid"
-
 }
 
 export default view_receptas

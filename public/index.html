@@ -24,22 +24,6 @@
             margin: 0;
         }
 
-        header {
-            width: 100%;
-            height: 5em;
-            padding: 0;
-            border: 0;
-            border-top: 1px solid darkgray;
-            border-bottom: 1px solid darkgray;
-            margin: 0 0 1em 0;
-            background-color: transparent;
-            display: grid;
-            grid-template-columns: auto auto auto auto auto auto;
-            grid-template-rows: auto;
-            place-content: center center;
-            place-items: center center;
-        }
-
         #logo {
             background-color: beige;
         }
@@ -73,8 +57,8 @@
 
         #view_receptas
         {
-            width: 90%;
-            height: fit-content;
+            max-width: 90%;
+            max-height: 90%;
             padding: 1em 1em 1em 1em;
             border: 0;
             margin: 0;
@@ -88,6 +72,7 @@
             place-content: center center;
             place-items: center center;
             box-shadow:0.2em 0.2em 0.2em rgb(200, 200, 200);
+            overflow-y: scroll;
         }
         
     </style>
@@ -96,9 +81,10 @@
 <body>
 
     <div id="view_receptas"></div>
+
+    <div id="view_header_fullscreen"></div>
+
     <header>
-        <div id="view_mygtukas_kategorijos"></div>
-        <div id="view_recepto_paieska"></div>
     </header>
 
     <main></main>
