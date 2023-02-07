@@ -1,15 +1,5 @@
-import controller_handle_window_resice from "./controllers/controller_handle_window_resice.mjs";
-import view_header_deskstop from "./views/view_header_deskstop.mjs";
-import view_header_fullscreeen from "./views/view_header_fullscreeen.mjs";
+import controller_check_header from "./controllers/controller_check_header.mjs";
 
-view_header_deskstop(
-    document.getElementsByTagName("header")[0]
-)
+window.onload = controller_check_header
 
-view_header_fullscreeen(
-
-    document.getElementById("view_header_fullscreeen")
-)
-
-window.addEventListener("resize", controller_handle_window_resice)
-
+window.onresize = controller_check_header

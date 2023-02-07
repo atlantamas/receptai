@@ -1,8 +1,23 @@
-import controller_handle_recepto_paieska_click from "../controllers/controller_handle_recepto_paieska_click.mjs"
+import model_ieskoti_receptu_pagal_raktazodi from "../models/model_ieskoti_receptu_pagal_raktazodi.mjs"
+import view_receptai from "./view_receptai.mjs"
+
+const controller_handle_click = async function (param_tekstas)
+{
+    const result_of_model_ieskoti_recepto = await model_ieskoti_receptu_pagal_raktazodi(param_tekstas)
+
+    view_receptai(
+        document.getElementsByTagName("main")[0],
+        result_of_model_ieskoti_recepto.meals)
+
+        //
+
+        controller_check_header()
+}
 
 const view_recepto_paieska = function (param_container)
 {
     const div = document.createElement("div")
+    div.style.overflow = "hidden"
 
     //
 
@@ -27,7 +42,7 @@ const view_recepto_paieska = function (param_container)
 
     button.addEventListener(
         "click",
-        function () { controller_handle_recepto_paieska_click(input.value) })
+        function () { controller_handle_click(input.value) })
 
     //
 

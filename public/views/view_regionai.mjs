@@ -52,7 +52,7 @@ const view_regionai = function (param_container, param_arr_regionai)
         //
 
         param_container.appendChild(div)
-
     }
 }
+
 export default view_regionai

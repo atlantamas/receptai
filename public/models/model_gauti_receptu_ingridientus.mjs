@@ -6,4 +6,5 @@
 
     return result_of_json
  }
+ 
  export default model_gauti_receptu_ingridientus

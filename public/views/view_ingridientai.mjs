@@ -1,4 +1,22 @@
-import controller_handle_mygtukas_ingredientas_click from "../controllers/controller_handle_mygtukas_ingredientas_click.mjs"
+import model_ieskoti_receptu_ingredienta from "../models/model_ieskoti_receptu_ingredienta.mjs"
+import view_header_header_mobile from "./view_header_header_mobile.mjs"
+import view_receptai from "./view_receptai.mjs"
+
+const controller_handle_click = async function (param_strIngridient)
+{
+    const result_of_model_ieskoti_receptu_ingredienta = await model_ieskoti_receptu_ingredienta(param_strIngridient)
+
+    const arr_ingredientai = result_of_model_ieskoti_receptu_ingredienta.meals
+
+    view_receptai(
+        document.getElementsByTagName("main")[0],
+        arr_ingredientai
+    )
+
+    view_header_header_mobile(
+        document.getElementsByTagName("header")[0]
+    )
+}
 
 const view_ingredientai = function (param_container, param_arr_ingredientai)
 {
@@ -22,7 +40,7 @@ const view_ingredientai = function (param_container, param_arr_ingredientai)
         div.style.gridTemplateColumns = "auto"
         div.style.placeContent = "end center"
         div.style.placeItems = "center center"
-        div.addEventListener("click",function(){controller_handle_mygtukas_ingredientas_click(ingredientas.strIngredient)} )
+        div.addEventListener("click", function () { controller_handle_click(ingredientas.strIngredient) })
         //
 
         const span_strMeal = document.createElement("span")
@@ -46,7 +64,6 @@ const view_ingredientai = function (param_container, param_arr_ingredientai)
         //
 
         param_container.appendChild(div)
-
     }
 }
 export default view_ingredientai

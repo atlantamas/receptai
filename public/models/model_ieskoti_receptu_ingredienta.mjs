@@ -6,4 +6,5 @@ const model_ieskoti_receptu_ingredienta =async function(param_ingredientas)
 
     return result_of_json
 }
+
 export default model_ieskoti_receptu_ingredienta

@@ -21,8 +21,8 @@ const view_receptas = async function (param_container, param_receptas)
     // iframe_youtube_video
 
     const iframe_youtube_video = document.createElement("iframe")
-    iframe_youtube_video.style.width = "42em"
-    iframe_youtube_video.style.height = "31.5em"
+    iframe_youtube_video.style.width = "80%"
+    iframe_youtube_video.style.height = "auto"
 
     // mutate uri
 
